@@ -1,45 +1,69 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import DialogInfo from './components/UI/Modals/ModalInfo';
+import BasicDataGrid from './components/UI/Tables/DataGridCustom';
+import { Button, Container, Typography } from '@mui/material';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [ sub, setSub ] = useState([
+    {
+      name: 'Emmanuel Correa',
+      email: 'ebcorreac@gmail.com',
+      phone: '+56933329406',
+      message: 'Hello World',
+    }
+  ]);
+
+  const handleClick = () => {
+    
+    setSub([
+      ...sub,
+      {
+        name: 'Emmanuel Correa',
+        email: 'ebcorreac@gmail.com',
+        phone: '+56933329406',
+        message: 'Hello World',
+      }
+    ]);
+    console.table(sub);
+  }
+
+  const columns =  [
+    { field: 'name'},
+    { field: 'code'},
+    { field: 'population'},
+    { field: 'size'},
+    { field: 'density',},
+  ];
+
+
+  const rows = [
+    { id: 1, name: 'India', code: 'IN', population: 1324171354, size: 3287263, density: 1 },
+    { id: 2, name: 'China', code: 'CN', population: 1357003600, size: 9596961,  density: 1 },
+    { id: 3, name: 'United States', code: 'US', population: 327167434, size: 9826634,  density: 1 },
+    { id: 4, name: 'Indonesia', code: 'ID', population: 263991379, size: 1904569,  density: 1 },
+    { id: 5, name: 'Brazil',   code: 'BR', population: 211085827, size: 8514750,  density: 1 },
+    { id: 6, name: 'Pakistan', code: 'PK', population: 197015955, size: 7980339,  density: 1 },
+  ];
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    
+    <>
+      <Navbar />
+        <Container>
+          <Typography textAlign="center"><h1>Impulsando Negocios</h1></Typography>
+          <Typography textAlign="left"><p>Bienvenido { sub[0].name }</p></Typography>
+          <BasicDataGrid headersTable={columns} rows={rows} height={500} />
+          <Button variant="contained" color="primary" onClick={handleClick}>Mostrar Nombre</Button>
+          {/* <DialogInfo content={'Estas seguro de ejecutar esta tarea?'} /> */}
+        </Container>
+      <Footer />
+    </>
+    
   )
 }
 
-export default App
+export default App;
