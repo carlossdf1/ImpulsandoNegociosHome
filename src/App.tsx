@@ -2,7 +2,8 @@ import './App.css';
 import { Container, Typography, Button } from '@mui/material';
 import { useState } from 'react';
 import BasicDataGrid from './components/UI/Tables/DataGridCustom';
-import Banner from './components/Banner';
+import Banner from './components/UI/Banners/Banner';
+import BannerDivider from './components/UI/Banners/BannerDivider';
 
 function App() {
 
@@ -46,17 +47,19 @@ function App() {
     { id: 5, name: 'Brazil',   code: 'BR', population: 211085827, size: 8514750,  density: 1 },
     { id: 6, name: 'Pakistan', code: 'PK', population: 197015955, size: 7980339,  density: 1 },
   ];
+  
+
+  const content:string = 'Aqui podras encontrar todo lo que necesitas para tu negocio';
+
 
   return (
     
     <>
-        <Banner title={'titulo'} subtitle={'Texto de prueba'} />
+        <Banner title={'Tu idea'} subtitle={`la hacemos posible ${sub[0].name}`} content={content}/>
+        <BannerDivider title={'Tu idea'} subtitle={`la hacemos posible`} content1={content} content2={content}/>
         <Container>
-          <Typography textAlign="center"><h1>Impulsando Negocios</h1></Typography>
-          <Typography textAlign="left"><p>Bienvenido { sub[0].name }</p></Typography>
           <BasicDataGrid headersTable={columns} rows={rows} height={500} />
           <Button variant="contained" color="primary" onClick={handleClick}>Mostrar Nombre</Button>
-          {/* <DialogInfo content={'Estas seguro de ejecutar esta tarea?'} /> */}
         </Container>
     </>
     
