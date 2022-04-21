@@ -16,7 +16,6 @@ interface NavbarProps {
   title: string;
   pages: string[];
   settings: string[];
-  // orientation?: 'content-left' | 'content-right' | 'content-center';
   orientationContent?: 'left' | 'right' | 'center';
 }
 
@@ -93,7 +92,7 @@ const Navbar = ({ title, pages, settings }:NavbarProps) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            {title}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             { pages.map((page) => (
