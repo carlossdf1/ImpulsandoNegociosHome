@@ -1,34 +1,26 @@
-import Contentleft from "./Contentleft";
+import { Typography } from "@mui/material";
 
-function Banner() {
+interface Props {
+    title:string,
+    subtitle:string,
+    content?:string,
+    contentSmall?:string,
+    orientation?: 'content-left' | 'content-right' | 'content-center',
+    orientationContent?: 'left' | 'right' | 'center'
+}
+
+function Banner({title, subtitle, content, contentSmall='', orientation= 'content-center', orientationContent='center'}:Props) {
     //Banner with css and React, (and Material UI) 
+
     return (
 
         <>
             <div className="banner">
-                <div className="content-left">
-                    <div className="title">Titulo</div>
-                    <div className="title">Izquierda</div>
-                    <p>Parrafo</p>
-                    <small>Texto pequeño</small>
-                </div>
-            </div>
-            <div className="banner">
-                <div className="content-right">
-                    <div className="title">Titulo</div>
-                    <div className="title">Derecha</div>
-                    <p>Parrafo</p>
-                    <small>Texto pequeño</small>
-                    <div></div>
-                </div>
-            </div>
-            <div className="banner">
-                <div className="content-center">
-                    <div className="title">Titulo</div>
-                    <div className="title">Centrado</div>
-                    <p>Parrafo</p>
-                    <small>Texto pequeño</small>
-                    <div></div>
+                <div className={ orientation }>
+                    <div className="title">{title}</div>
+                    <div className="title">{subtitle}</div>
+                    <Typography textAlign={orientationContent}>{content}</Typography>
+                    <small>{contentSmall}</small>
                 </div>
             </div>
         </>
