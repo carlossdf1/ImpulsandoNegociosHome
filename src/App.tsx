@@ -5,6 +5,8 @@ import Footer from './components/Footer';
 import DialogInfo from './components/UI/Modals/ModalInfo';
 import BasicDataGrid from './components/UI/Tables/DataGridCustom';
 import { Button, Container, Typography } from '@mui/material';
+import Banner from './components/Banner';
+import Contentleft from './components/Contentleft';
 
 function App() {
 
@@ -53,6 +55,7 @@ function App() {
     
     <>
       <Navbar />
+        <Banner />
         <Container>
           <Typography textAlign="center"><h1>Impulsando Negocios</h1></Typography>
           <Typography textAlign="left"><p>Bienvenido { sub[0].name }</p></Typography>
