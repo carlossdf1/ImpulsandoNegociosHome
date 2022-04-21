@@ -17,16 +17,14 @@ function BannerDivider({title, subtitle, content1, content2, contentSmall='', or
     return (
 
         <>
-            <div className="banner">
+            <div className="banner-divider">
                 <div className="content-left">
-                    <div className="title">{title}</div>
-                    <div className="title">{subtitle}</div>
+                    <div className="title">{title} {subtitle}</div>
                     <Typography textAlign={orientationContent1}>{content1}</Typography>
                     <small>{contentSmall}</small>
                 </div>
                 <div className='content-right'>
-                    <div className="title">{title}</div>
-                    <div className="title">{subtitle}</div>
+                    <div className="title">{title} {subtitle}</div>
                     <Typography textAlign={orientationContent2}>{content2}</Typography>
                     <small>{contentSmall}</small>
                 </div>
