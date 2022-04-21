@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import DialogInfo from './components/UI/Modals/ModalInfo';
+import { Container, Typography, Button } from '@mui/material';
+import { useState } from 'react';
 import BasicDataGrid from './components/UI/Tables/DataGridCustom';
-import { Button, Container, Typography } from '@mui/material';
 
 function App() {
 
@@ -48,22 +45,17 @@ function App() {
     { id: 5, name: 'Brazil',   code: 'BR', population: 211085827, size: 8514750,  density: 1 },
     { id: 6, name: 'Pakistan', code: 'PK', population: 197015955, size: 7980339,  density: 1 },
   ];
-
-  return (
-    
-    <>
-      <Navbar />
-        <Container>
-          <Typography textAlign="center"><h1>Impulsando Negocios</h1></Typography>
-          <Typography textAlign="left"><p>Bienvenido { sub[0].name }</p></Typography>
-          <BasicDataGrid headersTable={columns} rows={rows} height={500} />
-          <Button variant="contained" color="primary" onClick={handleClick}>Mostrar Nombre</Button>
-          {/* <DialogInfo content={'Estas seguro de ejecutar esta tarea?'} /> */}
-        </Container>
-      <Footer />
-    </>
-    
-  )
+return (
+<>
+    <Container>
+    <Typography textAlign="center"><h1>Impulsando Negocios</h1></Typography>
+    <Typography textAlign="left"><p>Bienvenido { sub[0].name }</p></Typography>
+    <BasicDataGrid headersTable={columns} rows={rows} height={500} />
+    <Button variant="contained" color="primary" onClick={handleClick}>Mostrar Nombre</Button>
+    {/* <DialogInfo content={'Estas seguro de ejecutar esta tarea?'} /> */}
+    </Container>
+</>
+)
 }
 
 export default App;
