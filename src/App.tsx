@@ -50,7 +50,7 @@ function App() {
   return (
     
     <>
-        <Banner />
+        <Banner title={'titulo'} subtitle={'Texto de prueba'} />
         <Container>
           <Typography textAlign="center"><h1>Impulsando Negocios</h1></Typography>
           <Typography textAlign="left"><p>Bienvenido { sub[0].name }</p></Typography>

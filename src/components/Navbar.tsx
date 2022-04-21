@@ -12,10 +12,15 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+interface NavbarProps {
+  title: string;
+  pages: string[];
+  settings: string[];
+  // orientation?: 'content-left' | 'content-right' | 'content-center';
+  orientationContent?: 'left' | 'right' | 'center';
+}
 
-const Navbar = () => {
+const Navbar = ({ title, pages, settings }:NavbarProps) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -45,7 +50,7 @@ const Navbar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO
+            {title}
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -124,7 +129,7 @@ const Navbar = () => {
               open={ Boolean( anchorElUser ) }
               onClose={ handleCloseUserMenu }
             >
-              { settings.map((setting) => (
+              { settings?.map((setting) => (
                 <MenuItem key={ setting } onClick={ handleCloseUserMenu }>
                   <Typography textAlign="center">{ setting }</Typography>
                 </MenuItem>

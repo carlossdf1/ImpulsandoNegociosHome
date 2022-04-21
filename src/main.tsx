@@ -6,9 +6,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 
+const pages = ['INICIO', 'ABOUT', 'BLOGS'];
+const settings = ['Perfil', 'Cuenta', 'Dashboard', 'Salir'];
 ReactDOM.render(
   <React.StrictMode>
-    <Navbar />
+    <Navbar title={'Impulsando Negocios'} pages={pages}  settings={settings}/>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
