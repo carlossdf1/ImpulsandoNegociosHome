@@ -12,14 +12,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-interface NavbarProps {
-  title: string;
-  pages: string[];
-  settings: string[];
-  orientationContent?: 'left' | 'right' | 'center';
-}
+const Navbar = () => {
 
-const Navbar = ({ title, pages, settings }:NavbarProps) => {
+  const pages = ['Home', 'About', 'BLOGS'];
+  const settings = ['Perfil', 'Cuenta', 'Dashboard', 'Salir'];
+  const title = 'Impulsando Negocios';
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
